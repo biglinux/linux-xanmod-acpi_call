@@ -6,11 +6,11 @@
 # Contributor: fnord0 <fnord0@riseup.net>
 
 _linuxprefix=linux-xanmod
-_extramodules=$(find /usr/lib/modules -type d -iname 6.1.7*xanmod* | rev | cut -d "/" -f1 | rev)
+_extramodules=$(find /usr/lib/modules -type d -iname 6.1.8*xanmod* | rev | cut -d "/" -f1 | rev)
 pkgname=$_linuxprefix-acpi_call
 _pkgname=acpi_call
 pkgver=1.2.2
-pkgrel=6171
+pkgrel=6181
 pkgdesc='A linux kernel module that enables calls to ACPI methods through /proc/acpi/call'
 arch=('x86_64')
 url="https://github.com/nix-community/$_pkgname"
@@ -24,7 +24,7 @@ source=("$_pkgname-$pkgver.tar.gz::${url}/archive/refs/tags/v$pkgver.tar.gz")
 sha256sums=('SKIP')
 
 build() {
-  _kernver=$(find /usr/lib/modules -type d -iname 6.1.7*xanmod* | rev | cut -d "/" -f1 | rev)
+  _kernver=$(find /usr/lib/modules -type d -iname 6.1.8*xanmod* | rev | cut -d "/" -f1 | rev)
   cd "${_pkgname}-${pkgver}"
   make KVER="${_kernver}"
 }
