@@ -6,7 +6,7 @@
 # Contributor: fnord0 <fnord0@riseup.net>
 
 _linuxprefix=linux-xanmod
-_kernver=$(find /usr/lib/modules -type d -iname 6.6.15*xanmod* | rev | cut -d "/" -f1 | rev)
+_kernver="$(cat /usr/src/${_linuxprefix}/version)"
 pkgname=$_linuxprefix-acpi_call
 _pkgname=acpi_call
 pkgver=1.2.2
